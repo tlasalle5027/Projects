@@ -1,0 +1,76 @@
+.tom{
+    height: 250px;
+    width: 250px;    
+}
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#contact{
+    font-family: 'Lato', sans-serif; 
+}
+
+a{
+    color: orangered;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+    text-align: center;    
+}
+
+a.navi{
+    color: white;    
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+h1{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
+    color: brown;
+}
+
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 20px;
+	overflow: hidden;
+	background-color: #010e80;
+	display: table;
+	width: 100%;
+}
+
+nav li {
+    display: table-cell    
+}
+
+thead th {
+    background: #00FFCD;
+    color: #000000;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 100;
+    letter-spacing: 2px;
+    padding: 20px;
+    text-transform: uppercase;
+  }
+
+  tr {
+    background: whitesmoke;
+    border-bottom: 1px solid #000000;
+    margin-bottom: 5px;
+  }
+
+  td {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    padding: 20px;
+    text-align: left;
+    
+  }
+
