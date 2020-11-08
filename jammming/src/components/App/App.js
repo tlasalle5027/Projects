@@ -18,7 +18,24 @@ class App extends React.Component {
         artist: 'Elton John',
         album: 'Madman Across Water',
         id: 2
-      }], 
+      }, { 
+      name: 'Dirty Water',
+      artist: 'The Standells',
+      album: 'Dirty Water',
+      id: 3
+    }],
+      playlistName: 'Boston Songs',
+      playlistTracks: [{
+        name: 'Dirty Water',
+        artist: 'The Standells',
+        album: 'Dirty Water',
+        id: 3
+      }, {
+        name: 'Tiny Dancer',
+        artist: 'Elton John',
+        album: 'Madman Across Water',
+        id: 2
+      }] 
     };
   }  
   
@@ -30,7 +47,8 @@ class App extends React.Component {
           <SearchBar />
           <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults}/>
-            <Playlist searchResults={this.state.searchResults}/>
+            <Playlist playlistName={this.state.playlistName}
+                      playlistTracks={this.state.playlistTracks}/>
           </div>
         </div>
       </div>
