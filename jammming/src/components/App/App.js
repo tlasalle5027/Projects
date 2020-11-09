@@ -3,37 +3,14 @@ import React from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
+import Spotify from '../../util/Spotify';
 
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state = { 
-      searchResults: [{
-        name: 'Tiny Dancer',
-        artist: 'Elton John',
-        album: 'Madman Across Water',
-        id: 1,
-        uri: 1
-      }, {
-        name: 'Tiny Dancer',
-        artist: 'Elton John',
-        album: 'Madman Across Water',
-        id: 2,
-        uri: 2
-      }, { 
-      name: 'Dirty Water',
-      artist: 'The Standells',
-      album: 'Dirty Water',
-      id: 3,
-      uri: 3
-    }, { 
-      name: 'Sweet Caroline',
-      artist: 'Neil Diamond',
-      album: 'Greatest Hits',
-      id: 4,
-      uri: 4
-    }],
-      playlistName: 'Boston Songs',
+      searchResults: [],
+      playlistName: 'Playlist Name',
       playlistTracks: [] 
     };
 
@@ -73,7 +50,10 @@ class App extends React.Component {
   }
 
   search(term){
-    console.log(term);
+    Spotify.search(term).then(searchResults => {
+      this.setState({ searchResults: searchResults });
+
+    });
   }
 
   
