@@ -12,22 +12,26 @@ class App extends React.Component {
         name: 'Tiny Dancer',
         artist: 'Elton John',
         album: 'Madman Across Water',
-        id: 1
+        id: 1,
+        uri: 1
       }, {
         name: 'Tiny Dancer',
         artist: 'Elton John',
         album: 'Madman Across Water',
-        id: 2
+        id: 2,
+        uri: 2
       }, { 
       name: 'Dirty Water',
       artist: 'The Standells',
       album: 'Dirty Water',
-      id: 3
+      id: 3,
+      uri: 3
     }, { 
       name: 'Sweet Caroline',
       artist: 'Neil Diamond',
       album: 'Greatest Hits',
-      id: 4
+      id: 4,
+      uri: 4
     }],
       playlistName: 'Boston Songs',
       playlistTracks: [] 
@@ -36,6 +40,7 @@ class App extends React.Component {
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
+    this.savePlaylist = this.savePlaylist.bind(this);
   }
   
   addTrack(track){
@@ -60,6 +65,12 @@ class App extends React.Component {
     this.setState({ playlistName: name });
   }
 
+  savePlaylist(){
+    const trackUris = this.state.playlistTracks.map(track =>
+      track.uri);
+
+  }
+
   
   render(){
     return (
@@ -73,6 +84,7 @@ class App extends React.Component {
             <Playlist playlistName={this.state.playlistName}
                       playlistTracks={this.state.playlistTracks}
                       onRemove={this.removeTrack}
+                      onSave={this.savePlaylist}
                       onNameChange={this.updatePlaylistName}/>
           </div>
         </div>
