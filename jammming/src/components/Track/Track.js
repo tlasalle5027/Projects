@@ -7,6 +7,7 @@ class Track extends React.Component{
         super(props);
 
         this.addTrack = this.addTrack.bind(this);
+        this.createSample = this.createSample.bind(this);
         this.removeTrack = this.removeTrack.bind(this);
     }
 
@@ -31,6 +32,14 @@ class Track extends React.Component{
 
     }
 
+    createSample(sampleUrl){
+        if(sampleUrl !== null){
+            return <audio src={sampleUrl} controls>Audio not supported</audio>;
+        } else {
+            return <p>Track does not have a sample</p>;
+        }
+    }
+
     render(){
         return (
             <div className="Track">
@@ -41,7 +50,7 @@ class Track extends React.Component{
                     <br></br>
                     <p><strong>Sample:</strong></p>
                     <br></br>
-                    <audio src={this.props.track.sample} controls>Audio not supported</audio>
+                    {this.createSample(this.props.track.sample)}                    
                 </div>
                 {this.renderAction()}
             </div>
