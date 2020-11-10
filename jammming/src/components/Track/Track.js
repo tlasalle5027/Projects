@@ -1,5 +1,4 @@
 import React from 'react';
-import TrackList from '../TrackList/TrackList';
 import './Track.css';
 
 class Track extends React.Component{    
@@ -37,7 +36,12 @@ class Track extends React.Component{
             <div className="Track">
                 <div className="Track-information">
                     <h3>{this.props.track.name}</h3>
+                    <br></br>
                     <p>{this.props.track.artist} | {this.props.track.album}</p>
+                    <br></br>
+                    <p><strong>Sample:</strong></p>
+                    <br></br>
+                    <audio src={this.props.track.sample} controls>Audio not supported</audio>
                 </div>
                 {this.renderAction()}
             </div>
