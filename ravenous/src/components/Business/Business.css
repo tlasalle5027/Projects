@@ -33,6 +33,12 @@
     flex-direction: column;
     justify-content: space-between;
   }
+
+  .Business-address .Map-link{
+    color: #CCA353;
+    font-weight: 400;
+    text-decoration: none;
+  }
   
   .Business-reviews {
     display: flex;
