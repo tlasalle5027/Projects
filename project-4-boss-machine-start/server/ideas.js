@@ -8,4 +8,12 @@ const {
     deleteFromDatabasebyId,
 } = require('./db');
 
-modules.export = ideaRouter;
+ideaRouter.get('/', (req, res, next) => {
+    res.send(getAllFromDatabase('ideas'));
+});
+
+ideaRouter.post('/', (req, res, next) => {
+    const newIdea = addToDatabase('ideas', req.body);
+})
+
+module.exports = ideaRouter;
