@@ -42,7 +42,7 @@ minionRouter.delete('/:minionid', (req, res, next) => {
     } else {
         res.status(404).send();
     }
-})
+});
 
 
 module.exports = minionRouter;
