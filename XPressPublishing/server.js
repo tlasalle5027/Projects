@@ -1,3 +1,4 @@
+const apiRouter = require('./api/api');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const errorHandler = require('errorhandler');
@@ -15,6 +16,9 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(errorHandler());
 app.use(morgan('dev'));
+
+//Set up API router
+app.use('/api', apiRouter);
 
 //Listen on the provided port
 app.listen(PORT, () => {
