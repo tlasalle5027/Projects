@@ -9,7 +9,7 @@ const morgan = require('morgan');
 const app = express();
 
 //Variable for port number
-const PORT = process.env.PORT || 4001;
+const PORT = process.env.PORT || 4000;
 
 //Setting up dependency usages
 app.use(bodyParser.json());
