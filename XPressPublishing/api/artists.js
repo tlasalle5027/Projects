@@ -36,6 +36,39 @@ artistRouter.get('/', (req, res, next) => {
 //Get a single artist by id
 artistRouter.get('/:artistId', (req, res, next) => {
     res.status(200).json({artist: req.artist});
-})
+});
+
+artistRouter.post('/', (req, res, next) => {
+    const name = req.body.artist.name;
+    const dateOfBirth = req.body.artist.dateOfBirth;
+    const biography = req.body.artist.biography;
+    const isCurrentlyEmployed = req.body.artist.isCurrentlyEmployed === 0 ? 0 : 1;
+
+    if(!name || !dateOfBirth || !biography ){
+        res.sendStatus(400);
+    }
+
+    const sql = 'INSERT INTO Artist (name, date_of_birth, biography, is_currently_employed) VALUES ($name, $dateOfBirth, $biography, $isCurrentlyEmployed)';
+    const values = {
+      $name: name,
+      $dateOfBirth: dateOfBirth,
+      $biography: biography,
+      $isCurrentlyEmployed: isCurrentlyEmployed
+    };
+     
+    db.run(sql, values, function(err) {
+        if(err){
+            next(err);
+        }
+
+        db.get(`SELECT * FROM Artist WHERE id=${this.lastID}`, function(err, artist){
+            res.status(201).send({artist: artist});
+        });
+    });
+});
+
+artistRouter.put('/:artistId', (req, res, next) => {
+
+});
 
 module.exports = artistRouter;
